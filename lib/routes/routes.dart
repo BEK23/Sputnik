@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 import 'package:sputnik/controllers/home/binding.dart';
-import 'package:sputnik/views/home/root_layout.dart';
+import 'package:sputnik/views/root_layout.dart';
 
 class Pages {
   static const initial = Routes.home;

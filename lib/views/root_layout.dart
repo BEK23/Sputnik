@@ -15,6 +15,14 @@ class RootLayout extends StatelessWidget {
       body: SafeArea(
           child: Stack(
         children: [
+          Padding(
+            padding: const EdgeInsets.only(left: 20, top: 20, right: 20),
+            child: PageView(
+              physics: const NeverScrollableScrollPhysics(),
+              controller: _homeController.pageController,
+              children: [..._homeController.pages],
+            ),
+          ),
           Column(
             children: [
               const Spacer(),
@@ -22,7 +30,7 @@ class RootLayout extends StatelessWidget {
                 decoration: BoxDecoration(
                     color: MColors.foreground,
                     borderRadius: BorderRadius.circular(36)),
-                height: 72,
+                height: 70,
                 margin: const EdgeInsets.symmetric(horizontal: 12),
                 padding: const EdgeInsets.symmetric(horizontal: 8),
                 child: Obx(() => Row(
@@ -61,7 +69,7 @@ class RootLayout extends StatelessWidget {
 
   _bottomAppBarItem({required IconData icon, required int page}) {
     return CircleAvatar(
-      radius: 30,
+      radius: 28,
       backgroundColor: _homeController.currentPage.value == page
           ? MColors.success
           : Colors.transparent,
@@ -71,7 +79,7 @@ class RootLayout extends StatelessWidget {
         highlightColor: Colors.transparent,
         icon: Icon(
           icon,
-          size: 28,
+          size: _homeController.currentPage.value == page ? 28 : 24,
           color: _homeController.currentPage.value == page
               ? MColors.foreground
               : Colors.white,
