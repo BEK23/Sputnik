@@ -5,6 +5,7 @@ class MColors {
   static HexColor background = HexColor("#16181d");
   static HexColor foreground = HexColor("#2b2f37");
   static HexColor success = HexColor("#51c56c");
+  static HexColor muted = HexColor("#6b6d73");
 }
 
 class HexColor extends Color {

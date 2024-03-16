@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:sputnik/views/bookmarks/bookmarks.dart';
 import 'package:sputnik/views/home/home_page.dart';
 
 class RootLayoutController extends GetxController {
@@ -7,7 +8,8 @@ class RootLayoutController extends GetxController {
   final RxInt currentPage = 0.obs;
 
   List<Widget> pages = [
-    const HomePage()
+    const HomePage(),
+    const BookMarksPage()
   ]; 
 
   @override
