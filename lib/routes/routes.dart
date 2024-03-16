@@ -9,7 +9,7 @@ class Pages {
     GetPage(
       name: Routes.home,
       page: () => RootLayout(),
-      binding: HomeBinding(),
+      binding: RootLayoutBinding(),
     )
   ];
 }

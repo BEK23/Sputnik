@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sputnik/views/home/home_page.dart';
 
-class HomeController extends GetxController {
+class RootLayoutController extends GetxController {
   late PageController pageController;
   final RxInt currentPage = 0.obs;
 

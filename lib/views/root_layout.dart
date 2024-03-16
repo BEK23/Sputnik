@@ -6,7 +6,7 @@ import 'package:sputnik/controllers/home/controller.dart';
 class RootLayout extends StatelessWidget {
   RootLayout({super.key});
 
-  final HomeController _homeController = Get.find();
+  final RootLayoutController _homeController = Get.find();
 
   @override
   Widget build(BuildContext context) {
