@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:sputnik/views/bookmarks/bookmarks.dart';
 import 'package:sputnik/views/courses/courses_page.dart';
 import 'package:sputnik/views/home/home_page.dart';
+import 'package:sputnik/views/notification/notification_page.dart';
 
 class RootLayoutController extends GetxController {
   late PageController pageController;
@@ -11,7 +12,8 @@ class RootLayoutController extends GetxController {
   List<Widget> pages = [
     const HomePage(),
     const BookMarksPage(),
-    const CoursesPage()
+    const CoursesPage(),
+    const NotificationPage()
   ]; 
 
   @override

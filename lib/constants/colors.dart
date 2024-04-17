@@ -4,6 +4,9 @@ import 'package:flutter/material.dart';
 class MColors {
   static HexColor background = HexColor("#16181d");
   static HexColor foreground = HexColor("#2b2f37");
+
+  static HexColor primary = HexColor("#0395ff");
+
   static HexColor success = HexColor("#51c56c");
   static HexColor muted = HexColor("#6b6d73");
 }
