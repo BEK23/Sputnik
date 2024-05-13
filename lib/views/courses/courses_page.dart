@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
 import 'package:get/get.dart';
 import 'package:sputnik/constants/colors.dart';
 import 'package:sputnik/controllers/home/controller.dart';
@@ -20,6 +20,72 @@ class CoursesPage extends GetView<RootLayoutController> {
 
   @override
   Widget build(BuildContext context) {
+    return FutureBuilder(
+      future: DefaultAssetBundle.of(context)
+          .loadString('resources/lesson-1-1.html'),
+      builder: (BuildContext context, AsyncSnapshot snapshot) {
+        if (snapshot.hasData) {
+          return SingleChildScrollView(
+            child: SelectionArea(
+              child: HtmlWidget(snapshot.data, customStylesBuilder: (element) {
+                if (element.classes.contains('title')) {
+                  return {
+                    'color': 'white',
+                    'text-align': 'center',
+                  };
+                }
+                if (element.classes.contains('subtitle')) {
+                  return {
+                    'color': 'white',
+                    'font-size': '16px',
+                    'fontWeight': 'normal',
+                    "text-align": "center",
+                  };
+                }
+                if (element.localName == 'h4') {
+                  return {
+                    'color': 'white',
+                    'font-size': '16px',
+                  };
+                }
+
+                if (element.localName == 'table') {
+                  return {
+                    'color': 'white',
+                    'border': '1px solid white',
+                    'border-collapse': 'collapse',
+                  };
+                }
+                if (element.localName == 'th') {
+                  return {
+                    'color': 'white',
+                    'background-color': 'gray',
+                    'padding': '8px',
+                    'text-align': 'left',
+                    'border': '1px solid white',
+                  };
+                }
+                if (element.localName == 'td') {
+                  return {
+                    'color': 'white',
+                    'padding': '8px',
+                    'text-align': 'left',
+                    'border': '1px solid white',
+                  };
+                }
+
+                return {'color': 'white', 'fontSize': '16px'};
+              }),
+            ),
+          );
+        } else {
+          return const Center(
+            child: CircularProgressIndicator(),
+          );
+        }
+      },
+    );
+
     return CustomScrollView(
       physics: const BouncingScrollPhysics(),
       slivers: [
