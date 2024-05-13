@@ -14,7 +14,7 @@ class RootLayoutController extends GetxController {
     const BookMarksPage(),
     const CoursesPage(),
     const NotificationPage()
-  ]; 
+  ];
 
   @override
   void onInit() {

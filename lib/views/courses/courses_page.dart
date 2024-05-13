@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
 import 'package:get/get.dart';
 import 'package:sputnik/constants/colors.dart';
 import 'package:sputnik/controllers/home/controller.dart';
+import 'package:sputnik/routes/routes.dart';
 
 class Course {
   String name;
@@ -20,72 +20,6 @@ class CoursesPage extends GetView<RootLayoutController> {
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder(
-      future: DefaultAssetBundle.of(context)
-          .loadString('resources/lesson-1-1.html'),
-      builder: (BuildContext context, AsyncSnapshot snapshot) {
-        if (snapshot.hasData) {
-          return SingleChildScrollView(
-            child: SelectionArea(
-              child: HtmlWidget(snapshot.data, customStylesBuilder: (element) {
-                if (element.classes.contains('title')) {
-                  return {
-                    'color': 'white',
-                    'text-align': 'center',
-                  };
-                }
-                if (element.classes.contains('subtitle')) {
-                  return {
-                    'color': 'white',
-                    'font-size': '16px',
-                    'fontWeight': 'normal',
-                    "text-align": "center",
-                  };
-                }
-                if (element.localName == 'h4') {
-                  return {
-                    'color': 'white',
-                    'font-size': '16px',
-                  };
-                }
-
-                if (element.localName == 'table') {
-                  return {
-                    'color': 'white',
-                    'border': '1px solid white',
-                    'border-collapse': 'collapse',
-                  };
-                }
-                if (element.localName == 'th') {
-                  return {
-                    'color': 'white',
-                    'background-color': 'gray',
-                    'padding': '8px',
-                    'text-align': 'left',
-                    'border': '1px solid white',
-                  };
-                }
-                if (element.localName == 'td') {
-                  return {
-                    'color': 'white',
-                    'padding': '8px',
-                    'text-align': 'left',
-                    'border': '1px solid white',
-                  };
-                }
-
-                return {'color': 'white', 'fontSize': '16px'};
-              }),
-            ),
-          );
-        } else {
-          return const Center(
-            child: CircularProgressIndicator(),
-          );
-        }
-      },
-    );
-
     return CustomScrollView(
       physics: const BouncingScrollPhysics(),
       slivers: [
@@ -130,42 +64,50 @@ class CoursesPage extends GetView<RootLayoutController> {
         courses.length,
         (index) => SizedBox(
           width: double.infinity,
-          child: Card(
-            color: courses[index].backgorund,
-            shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-            margin: const EdgeInsets.only(bottom: 14),
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    "Урок ${index + 1}: ${courses[index].name}",
-                    style: const TextStyle(color: Colors.white, fontSize: 18),
-                  ),
-                  const SizedBox(height: 4),
-                  Text(
-                    courses[index].nameUz,
-                    style: const TextStyle(color: Colors.white70),
-                  ),
-                  const SizedBox(height: 8),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      courses[index].closed
-                          ? const Icon(
-                              Icons.lock_outline_rounded,
-                              size: 20,
-                              color: Colors.white70,
-                            )
-                          : Text(
-                              "${courses[index].progress}%",
-                              style: const TextStyle(color: Colors.white70),
-                            ),
-                    ],
-                  ),
-                ],
+          child: GestureDetector(
+            onTap: () {
+              if (!courses[index].closed) {
+                Get.toNamed(Routes.lesson);
+              }
+            },
+            child: Card(
+              color: courses[index].backgorund,
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(16)),
+              margin: const EdgeInsets.only(bottom: 14),
+              child: Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Урок ${index + 1}: ${courses[index].name}",
+                      style: const TextStyle(color: Colors.white, fontSize: 18),
+                    ),
+                    const SizedBox(height: 4),
+                    Text(
+                      courses[index].nameUz,
+                      style: const TextStyle(color: Colors.white70),
+                    ),
+                    const SizedBox(height: 8),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        courses[index].closed
+                            ? const Icon(
+                                Icons.lock_outline_rounded,
+                                size: 20,
+                                color: Colors.white70,
+                              )
+                            : Text(
+                                "${courses[index].progress}%",
+                                style: const TextStyle(color: Colors.white70),
+                              ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
