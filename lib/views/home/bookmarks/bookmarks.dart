@@ -10,7 +10,7 @@ class Mark {
   Mark(this.word, this.date);
 }
 
-class BookMarksPage extends GetView<RootLayoutController> {
+class BookMarksPage extends GetView<HomeLayoutController> {
   const BookMarksPage({super.key});
 
   @override
@@ -53,7 +53,8 @@ class BookMarksPage extends GetView<RootLayoutController> {
           child: Card(
             color: MColors.foreground,
             margin: const EdgeInsets.only(bottom: 10),
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
               child: Column(

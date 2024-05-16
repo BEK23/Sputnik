@@ -15,7 +15,7 @@ class Course {
       [this.closed = true]);
 }
 
-class CoursesPage extends GetView<RootLayoutController> {
+class CoursesPage extends GetView<HomeLayoutController> {
   const CoursesPage({super.key});
 
   @override

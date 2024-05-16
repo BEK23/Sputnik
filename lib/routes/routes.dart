@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 import 'package:sputnik/controllers/home/binding.dart';
+import 'package:sputnik/views/home/home_layout.dart';
 import 'package:sputnik/views/lesson/lesson.dart';
-import 'package:sputnik/views/root_layout.dart';
 
 class Pages {
   static const initial = Routes.home;
@@ -9,8 +9,8 @@ class Pages {
   static final pages = [
     GetPage(
       name: Routes.home,
-      page: () => RootLayout(),
-      binding: RootLayoutBinding(),
+      page: () => HomeLayout(),
+      binding: HomeLayoutBinding(),
     ),
     GetPage(
       name: Routes.lesson,

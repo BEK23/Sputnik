@@ -13,7 +13,7 @@ class Notification {
   Notification(this.title, this.body, this.date, this.viwed);
 }
 
-class NotificationPage extends GetView<RootLayoutController> {
+class NotificationPage extends GetView<HomeLayoutController> {
   const NotificationPage({super.key});
 
   @override

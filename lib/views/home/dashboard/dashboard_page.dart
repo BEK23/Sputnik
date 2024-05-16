@@ -3,8 +3,8 @@ import 'package:get/get.dart';
 import 'package:sputnik/constants/colors.dart';
 import 'package:sputnik/controllers/home/controller.dart';
 
-class HomePage extends GetView<RootLayoutController> {
-  const HomePage({super.key});
+class DashboardPage extends GetView<HomeLayoutController> {
+  const DashboardPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -111,7 +111,11 @@ class HomePage extends GetView<RootLayoutController> {
   }
 
   _buildMyProgress() {
-    final items = [HexColor("#769bfa"), HexColor("#505255"), MColors.foreground];
+    final items = [
+      HexColor("#769bfa"),
+      HexColor("#505255"),
+      MColors.foreground
+    ];
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,

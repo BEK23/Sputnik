@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:sputnik/views/bookmarks/bookmarks.dart';
-import 'package:sputnik/views/courses/courses_page.dart';
-import 'package:sputnik/views/home/home_page.dart';
-import 'package:sputnik/views/notification/notification_page.dart';
+import 'package:sputnik/views/home/bookmarks/bookmarks.dart';
+import 'package:sputnik/views/home/courses/courses_page.dart';
+import 'package:sputnik/views/home/dashboard/dashboard_page.dart';
+import 'package:sputnik/views/home/notification/notification_page.dart';
 
-class RootLayoutController extends GetxController {
+class HomeLayoutController extends GetxController {
   late PageController pageController;
   final RxInt currentPage = 0.obs;
 
   List<Widget> pages = [
-    const HomePage(),
+    const DashboardPage(),
     const BookMarksPage(),
     const CoursesPage(),
     const NotificationPage()

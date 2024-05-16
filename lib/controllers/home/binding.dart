@@ -2,9 +2,9 @@ import 'package:get/get.dart';
 
 import 'controller.dart';
 
-class RootLayoutBinding implements Bindings {
+class HomeLayoutBinding implements Bindings {
   @override
   void dependencies() {
-    Get.lazyPut<RootLayoutController>(() => RootLayoutController());
+    Get.lazyPut<HomeLayoutController>(() => HomeLayoutController());
   }
 }
