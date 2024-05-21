@@ -4,17 +4,6 @@ import 'package:sputnik/constants/colors.dart';
 import 'package:sputnik/controllers/home/controller.dart';
 import 'package:sputnik/routes/routes.dart';
 
-class Course {
-  String name;
-  String nameUz;
-  int progress;
-  Color backgorund;
-  bool closed;
-
-  Course(this.name, this.nameUz, this.progress, this.backgorund,
-      [this.closed = true]);
-}
-
 class CoursesPage extends GetView<HomeLayoutController> {
   const CoursesPage({super.key});
 
@@ -27,7 +16,8 @@ class CoursesPage extends GetView<HomeLayoutController> {
             delegate: SliverChildListDelegate([
           _buildHeader(),
           const SizedBox(height: 20),
-          _buildCoursesList()
+          _buildCoursesList(),
+          const SizedBox(height: 100),
         ]))
       ],
     );
@@ -43,21 +33,7 @@ class CoursesPage extends GetView<HomeLayoutController> {
   }
 
   _buildCoursesList() {
-    final List<Course> courses = [
-      Course(
-        "Русский алфавит. Буквы и звуки. Ударение",
-        "Rus alifbosi. Harf va tovushlar. Urg‘u.",
-        75,
-        HexColor("#769bfa"),
-        false,
-      ),
-      Course(
-        "Русский алфавит. Буквы и звуки. Ударение",
-        "Rus alifbosi. Harf va tovushlar. Urg‘u.",
-        0,
-        MColors.foreground,
-      )
-    ];
+    final courses = controller.courses;
 
     return Column(
       children: List.generate(
@@ -66,12 +42,12 @@ class CoursesPage extends GetView<HomeLayoutController> {
           width: double.infinity,
           child: GestureDetector(
             onTap: () {
-              if (!courses[index].closed) {
+              if (courses[index].closed == false) {
                 Get.toNamed(Routes.lesson);
               }
             },
             child: Card(
-              color: courses[index].backgorund,
+              color: HexColor(courses[index].backgroud),
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(16)),
               margin: const EdgeInsets.only(bottom: 14),
@@ -82,19 +58,19 @@ class CoursesPage extends GetView<HomeLayoutController> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      "Урок ${index + 1}: ${courses[index].name}",
+                      "Урок ${index + 1}: ${courses[index].titleRu}",
                       style: const TextStyle(color: Colors.white, fontSize: 18),
                     ),
                     const SizedBox(height: 4),
                     Text(
-                      courses[index].nameUz,
+                      courses[index].titleUz,
                       style: const TextStyle(color: Colors.white70),
                     ),
                     const SizedBox(height: 8),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
-                        courses[index].closed
+                        courses[index].closed != false
                             ? const Icon(
                                 Icons.lock_outline_rounded,
                                 size: 20,

@@ -1,0 +1,41 @@
+[
+  {
+    "titleRu": "Русский алфавит. Буквы и звуки. Ударение.",
+    "titleUz": "Rus alifbosi. Harf va tovushlar. Urg‘u.",
+    "progress": 0,
+    "backgroud": "#769bfa",
+    "closed": false
+  },
+  {
+    "titleRu":
+        "Общее понятие о частях речи. Имя существительное. Род имени существительного. Единственное и множественное число имён существительных. Личные и притяжательные местоимения.",
+    "titleUz":
+        "So‘z turkumlari haqida umumiy tushuncha. Ot. Otlarning род kategoriyasi. Otlarning birlik va ko‘plik kategoriyasi. Kishilik va egalik olmoshlari.",
+    "backgroud": "#2b2f37"
+  },
+  {
+    "titleRu":
+        "Общее понятие о глаголе. Вид  глагола. Образование видов глагола.",
+    "titleUz":
+        "Fe’l haqida umumiy tushuncha. Rus fe’lining vid kategoriyasi. Fe’llarning vidini yasalishi.",
+    "backgroud": "#2b2f37"
+  },
+  {
+    "titleRu": "Времена  глагола. I и II спряжения глагола. Наречие.",
+    "titleUz": "Fe’lning zamonlari. Fe’lning I va II tuslanishi. Ravish.",
+    "backgroud": "#2b2f37"
+  },
+  {
+    "titleRu":
+        "Общее понятие о склонении имён существительных. Предложный падеж имён существительных, местоимений, имён прилагательных, имён числительных.",
+    "titleUz":
+        "Ot tuslanishi haqida umumiy tushuncha. Ot, olmosh, sifat va sonlar предложный падежda.",
+    "backgroud": "#2b2f37"
+  },
+  {
+    "titleRu":
+        "Винительный падеж имён существительных, местоимений, имён прилагательных, имён числительных",
+    "titleUz": "Ot, olmosh, sifat va son винительный kelishikda.",
+    "backgroud": "#2b2f37"
+  }
+]
