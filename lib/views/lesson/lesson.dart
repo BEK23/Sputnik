@@ -21,8 +21,7 @@ class LessonPage extends StatelessWidget {
           },
         ),
         title: Text(
-          // "${Get.arguments['title']}",
-          "",
+          "${Get.arguments['title']}",
           style: const TextStyle(color: Colors.white),
         ),
         centerTitle: true,
@@ -44,14 +43,14 @@ class LessonPage extends StatelessWidget {
                 itemBuilder: (context, index) {
                   return GestureDetector(
                     onTap: () {
-                      // if (_lessonController.pachters[index].closed != false) {
-                      //   Get.toNamed(
-                      //     "/chapter/${index + 1}",
-                      //     arguments: {
-                      //       "title": _lessonController.pachters[index].titleRu,
-                      //     },
-                      //   );
-                      // }
+                      if (_lessonController.pachters[index].closed == false) {
+                        Get.toNamed(
+                          "/chapter",
+                          arguments: {
+                            "title": _lessonController.pachters[index].titleRu,
+                          },
+                        );
+                      }
                     },
                     child: Card(
                       color:
