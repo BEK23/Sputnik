@@ -1,0 +1,23 @@
+[
+  {
+    "titleRu": "Алфавит русского языка",
+    "titleUz": "Rus alifbosi",
+    "backgroud": "#769bfa",
+    "closed": false
+  },
+  {
+    "titleRu": "Чтение гласных в разных позициях",
+    "titleUz": "Unli tovushlarni turli pozitsiyada o‘qilishi",
+    "backgroud": "#2b2f37"
+  },
+  {
+    "titleRu": "Чтение согласных в разных позициях",
+    "titleUz": "Undoshlarning turli pozitsiyada o‘qilishi",
+    "backgroud": "#2b2f37"
+  },
+  {
+    "titleRu": "Ударение",
+    "titleUz": "Urg‘u",
+    "backgroud": "#2b2f37"
+  }
+]

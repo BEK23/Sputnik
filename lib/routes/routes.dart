@@ -14,7 +14,7 @@ class Pages {
     ),
     GetPage(
       name: Routes.lesson,
-      page: () => const LessonPage(),
+      page: () => LessonPage(),
     )
   ];
 }
@@ -23,5 +23,5 @@ abstract class Routes {
   Routes._();
 
   static const home = "/home";
-  static const lesson = "/lesson";
+  static const lesson = "/lesson/:index";
 }

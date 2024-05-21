@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sputnik/constants/colors.dart';
 import 'package:sputnik/controllers/home/controller.dart';
-import 'package:sputnik/routes/routes.dart';
 
 class CoursesPage extends GetView<HomeLayoutController> {
   const CoursesPage({super.key});
@@ -43,7 +42,12 @@ class CoursesPage extends GetView<HomeLayoutController> {
           child: GestureDetector(
             onTap: () {
               if (courses[index].closed == false) {
-                Get.toNamed(Routes.lesson);
+                Get.toNamed(
+                  "/lesson/${index + 1}",
+                  arguments: {
+                    "title": courses[index].titleRu,
+                  },
+                );
               }
             },
             child: Card(
@@ -77,7 +81,7 @@ class CoursesPage extends GetView<HomeLayoutController> {
                                 color: Colors.white70,
                               )
                             : Text(
-                                "${courses[index].progress}%",
+                                "${courses[index].progress ?? 0}%",
                                 style: const TextStyle(color: Colors.white70),
                               ),
                       ],
